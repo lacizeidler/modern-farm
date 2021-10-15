@@ -1,5 +1,9 @@
 const types = ["Soybean", "Corn", "Asparagus", "Wheat", "Potato", "Sunflower"]
 
+export const typesArray = () => {
+    return database.types.map(type => ({...type}))
+}
+
 export const createPlan = () => {
     const plan = []
 
@@ -17,6 +21,7 @@ export const createPlan = () => {
 
 
 
+
 /*
     This is a generator function used to randomly
     generate crop types to plants in each plot. It
@@ -29,4 +34,6 @@ const crop = function* () {
         yield types[typeIdx]
     }
 }()
+
+
 
