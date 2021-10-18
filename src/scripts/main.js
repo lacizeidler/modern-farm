@@ -5,28 +5,59 @@ import { createSunflower } from './seeds/sunflower.js'
 import { createWheat } from './seeds/wheat.js'
 import { createSoybean } from './seeds/soybean.js'
 import { createCorn } from './seeds/corn.js'
+import { plantSeeds } from './tractor.js'
+import { usePlants } from './field.js'
+import { harvestPlants } from './harvester.js'
+import { catalog } from './catalog.js'
+import { catalogList } from './catalog.js'
 
-const cornSeed = createCorn() 
-console.log(cornSeed)
+const creatingThePlan = createPlan()
+plantSeeds(creatingThePlan)
+console.log(creatingThePlan)
 
-const soybeanSeed = createSoybean()
-console.log(soybeanSeed)
+const grownPlants = usePlants()
+const harvestedPlants = harvestPlants(grownPlants)
+console.log(harvestedPlants)
 
-const wheatSeed = createWheat()
-console.log(wheatSeed)
+const foodToEat = catalog(harvestedPlants)
+console.log(foodToEat)
 
-const sunflowerSeed = createSunflower() 
-console.log(sunflowerSeed)
+const listOfCatalog = catalogList()
 
-const potatoSeed = createPotato()
-console.log(potatoSeed)
+const mainContainer = document.querySelector("#container")
 
-const asparagusSeed = createAsparagus()
-console.log(asparagusSeed)
+const applicationHTML = `
+<h1>Vegetables 4 U <3</h1>
 
-const yearlyPlan = createPlan()
-console.log(yearlyPlan)
+<article class="messages">
+    ${listOfCatalog}
+</article>
+`
 
-console.log("Welcome to the main module")
+mainContainer.innerHTML = applicationHTML
+
+
+// const cornSeed = createCorn() 
+// console.log(cornSeed)
+
+// const soybeanSeed = createSoybean()
+// console.log(soybeanSeed)
+
+// const wheatSeed = createWheat()
+// console.log(wheatSeed)
+
+// const sunflowerSeed = createSunflower() 
+// console.log(sunflowerSeed)
+
+// const potatoSeed = createPotato()
+// console.log(potatoSeed)
+
+// const asparagusSeed = createAsparagus()
+// console.log(asparagusSeed)
+
+// const yearlyPlan = createPlan()
+// console.log(yearlyPlan)
+
+// console.log("Welcome to the main module")
 
 
