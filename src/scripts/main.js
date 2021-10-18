@@ -9,7 +9,6 @@ import { plantSeeds } from './tractor.js'
 import { usePlants } from './field.js'
 import { harvestPlants } from './harvester.js'
 import { catalog } from './catalog.js'
-import { catalogList } from './catalog.js'
 
 const creatingThePlan = createPlan()
 plantSeeds(creatingThePlan)
@@ -22,19 +21,9 @@ console.log(harvestedPlants)
 const foodToEat = catalog(harvestedPlants)
 console.log(foodToEat)
 
-const listOfCatalog = catalogList()
+const mainContainer = document.querySelector(".container")
 
-const mainContainer = document.querySelector("#container")
-
-const applicationHTML = `
-<h1>Vegetables 4 U <3</h1>
-
-<article class="messages">
-    ${listOfCatalog}
-</article>
-`
-
-mainContainer.innerHTML = applicationHTML
+mainContainer.innerHTML = foodToEat
 
 
 // const cornSeed = createCorn() 
